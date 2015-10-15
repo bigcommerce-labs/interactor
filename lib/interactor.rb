@@ -1,3 +1,4 @@
+require "interactor/version"
 require "interactor/context"
 require "interactor/error"
 require "interactor/hooks"
