@@ -1,3 +1,11 @@
+## 3.2.1 / 2015-10-20
+
+* [FEATURE] Add "halted?" for tracking halted state of an interactor context
+
+## 3.2.0 / 2015-10-15
+
+* [FEATURE] Add ability to halt interactor organizer chains via "halt!"
+
 ## 3.1.0 / 2014-10-13
 
 * [FEATURE] Add around hooks

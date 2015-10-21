@@ -98,6 +98,24 @@ module Interactor
       @failure || false
     end
 
+    # Public: Whether the Interactor::Context was halted or not. By default, a new
+    # context is non-halted and only changes when explicitly halted.
+    #
+    # Examples
+    #
+    #
+    #   context = Interactor::Context.new
+    #   # => #<Interactor::Context>
+    #   context.halted?
+    #   # => false
+    #   context.halt!(foo: "baz")
+    #   # => Interactor::Halt: #<Interactor::Context foo="baz">
+    #
+    # Raises Interactor::Halt initialized with the Interactor::Context
+    def halted?
+      @halted || false
+    end
+
     # Public: Fail the Interactor::Context. Failing a context raises an error
     # that may be rescued by the calling interactor. The context is also flagged
     # as having failed.
@@ -150,6 +168,7 @@ module Interactor
     # Raises Interactor::Halt initialized with the Interactor::Context.
     def halt!(context = {})
       modifiable.update(context)
+      @halted = true
       raise Halt, self
     end
 

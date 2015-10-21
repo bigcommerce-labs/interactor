@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name    = "interactor"
   spec.version = Interactor::VERSION
 
-  spec.author      = "Collective Idea"
+  spec.author      = ["Collective Idea", "Bigcommerce"]
   spec.email       = ["info@collectiveidea.com","shaun.mccormick@bigcommerce.com"]
   spec.description = "Interactor provides a common interface for performing complex user interactions."
   spec.summary     = "Simple interactor implementation"

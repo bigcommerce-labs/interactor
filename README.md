@@ -456,6 +456,22 @@ end
 interactor should have a single purpose, there should be no need to clean up
 after any failed interactor.
 
+#### Halting an Organizer
+
+When in an Organizer chain, one can "halt" an Organizer at any point, which effectively
+prevents any further Interactors in the Organizer from running, but *does not* fail the
+context.
+
+Halting a context will raise an `Interactor::Halt` exception, which is caught by the parent
+Organizer, stopping the execution chain. Unlike `fail!`, however, no rollbacks are performed.
+Halting provides an easy way to return early in an Organizer chain should you find the need.
+
+```
+context.halted? # => false
+context.halt!
+context.halted? # => true
+```
+
 ## Testing Interactors
 
 When written correctly, an interactor is easy to test because it only *does* one

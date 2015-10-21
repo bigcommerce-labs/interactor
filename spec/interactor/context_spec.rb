@@ -139,6 +139,14 @@ module Interactor
                  }
       end
 
+      it "sets halted to true" do
+        expect {
+          context.halt! rescue nil
+        }.to change {
+               context.halted?
+             }.from(false).to(true)
+      end
+
       it "preserves the context" do
         expect {
           context.halt! rescue nil
